@@ -1,0 +1,13 @@
++++ Packages +++
+jshint2
+nerdcommenter
+vim-indent-guides
+vim-javascript
+vim-javascript-syntax
+vim-json
+vim-sensible
+
++++ Colors +++
+Molokai
+
+
