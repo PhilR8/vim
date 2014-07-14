@@ -40,7 +40,10 @@ set guitablabel=%{GuiTabLabel()}
 
 " set current workspace to :Explore
 map <F2> :cd %:p:h
+" save and run python file
 map <F5> :w<CR>:!python %<CR> 
+" open NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 set lines=50 columns=100
 set number

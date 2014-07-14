@@ -6,6 +6,7 @@ vim-javascript
 vim-javascript-syntax
 vim-json
 vim-sensible
+nerdtree
 
 +++ Colors +++
 Molokai
