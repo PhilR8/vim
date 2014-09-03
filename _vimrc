@@ -71,6 +71,12 @@ execute pathogen#infect()
 syntax on 
 filetype plugin indent on
 
+" airline customizations
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 set expandtab
 set shiftwidth=4
 set softtabstop=4
