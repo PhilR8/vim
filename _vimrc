@@ -3,6 +3,30 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+" easily load vimrc to edit (\v)
+map <leader>v :tabedit $MYVIMRC<CR>
+" reload new vimrc settings on save
+autocmd! bufwritepost _vimrc source $MYVIMRC
+
+" Vundle settings
+set nocompatible
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=C:/Vim/vimfiles/bundle/Vundle.vim/
+let path='C:/Vim/vimfiles/bundle'
+call vundle#begin(path)
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" Keep plugin commands between vundle#begin/end.
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'bling/vim-airline'
+Plugin 'nathanealkane/vim-indent-guides'
+Plugin 'jelara/vim-javascript-syntax'
+Plugin 'tpope/vim-sensible'
+" All plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 " tab labels
 set showtabline=2 " always show tabs in gvim, but not vim
 " set up tab labels with tab number, buffer name, number of windows
@@ -41,7 +65,7 @@ set guitablabel=%{GuiTabLabel()}
 " set current workspace to :Explore
 map <F2> :cd %:p:h
 " save and run python file
-map <F5> :w<CR>:!python %<CR> 
+map <F5> :w<CR>:!python %<CR>
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -66,10 +90,7 @@ endif
 " Color scheme
 colorscheme molokai
 
-" Pathogen
-execute pathogen#infect()
-syntax on 
-filetype plugin indent on
+syntax on
 
 " airline customizations
 let g:airline#extensions#tabline#left_sep = ' '
@@ -84,29 +105,3 @@ set softtabstop=4
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 match ErrorMsg '\s\+$'
-
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
-
