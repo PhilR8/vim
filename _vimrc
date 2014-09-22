@@ -5,8 +5,6 @@ behave mswin
 
 " easily load vimrc to edit (\v)
 map <leader>v :tabedit $MYVIMRC<CR>
-" reload new vimrc settings on save
-autocmd! bufwritepost _vimrc source $MYVIMRC
 
 " Vundle settings
 set nocompatible
@@ -24,6 +22,9 @@ Plugin 'bling/vim-airline'
 Plugin 'nathanealkane/vim-indent-guides'
 Plugin 'jelara/vim-javascript-syntax'
 Plugin 'tpope/vim-sensible'
+Plugin 'hail2u/vim-css2-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'kien/ctrlp.vim'
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -98,10 +99,19 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-set expandtab
+" tab settings
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set noexpandtab
+
+" caseless searching
+set ignorecase
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 match ErrorMsg '\s\+$'
+
+" reload new vimrc settings on save
+autocmd! bufwritepost _vimrc source $MYVIMRC
+
