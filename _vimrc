@@ -111,7 +111,3 @@ set ignorecase
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 match ErrorMsg '\s\+$'
-
-" reload new vimrc settings on save
-autocmd! bufwritepost _vimrc source $MYVIMRC
-
