@@ -67,6 +67,8 @@ set guitablabel=%{GuiTabLabel()}
 map <F2> :cd %:p:h
 " save and run python file
 map <F5> :w<CR>:!python %<CR>
+" remove whitespace
+map <F10> :%s/\s\+$//
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
