@@ -9,6 +9,7 @@ map <leader>v :tabedit $MYVIMRC<CR>
 " Vundle settings
 set nocompatible
 filetype off
+
 " set the runtime path to include Vundle and initialize
 set rtp+=C:/Vim/vimfiles/bundle/Vundle.vim/
 let path='C:/Vim/vimfiles/bundle'
@@ -20,14 +21,17 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jelara/vim-javascript-syntax'
 Plugin 'tpope/vim-sensible'
 Plugin 'hail2u/vim-css2-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mbbill/undotree'
+Plugin 'marijnh/tern_for_vim'
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
+
 " tab labels
 set showtabline=2 " always show tabs in gvim, but not vim
 " set up tab labels with tab number, buffer name, number of windows
@@ -65,8 +69,15 @@ set guitablabel=%{GuiTabLabel()}
 
 " set current workspace to :Explore
 map <F2> :cd %:p:h
-" save and run python file
-map <F5> :w<CR>:!python %<CR>
+
+" Toggle undotree
+nnoremap <F5> :UndotreeToggle<CR>
+
+if has("persistent_undo")
+    set undodir=D:\undo
+    set undofile
+endif
+
 " remove whitespace
 map <F10> :%s/\s\+$//
 " open NERDTree
@@ -113,3 +124,4 @@ set ignorecase
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 match ErrorMsg '\s\+$'
+
