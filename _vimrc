@@ -21,13 +21,14 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'jelara/vim-javascript-syntax'
 Plugin 'tpope/vim-sensible'
-Plugin 'hail2u/vim-css2-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mbbill/undotree'
-Plugin 'marijnh/tern_for_vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'elzr/vim-json'
+Plugin 'mhinz/vim-signify'
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -83,6 +84,9 @@ map <F10> :%s/\s\+$//
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" delimitMate binding
+imap <C-c> <CR><Esc>O
+
 set lines=50 columns=100
 set number
 
@@ -97,9 +101,14 @@ if has("gui_running")
   elseif has("x11")
     set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
   else
-    set guifont=Courier_New:h11:cDEFAULT
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11:cDEFAULT
   endif
 endif
+
+set encoding=utf-8
+set fileencodings=utf-8
+
+set linespace=2
 
 " Color scheme
 colorscheme molokai
@@ -111,6 +120,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
 
 " tab settings
 set tabstop=4
@@ -122,6 +132,9 @@ set noexpandtab
 set ignorecase
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
+" vim-signify 
+let g:signify_vcs_list = [ 'git' ]
 
 match ErrorMsg '\s\+$'
 
