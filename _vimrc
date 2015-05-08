@@ -134,8 +134,12 @@ set ignorecase
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-" vim-signify 
+" vim-signify
 let g:signify_vcs_list = [ 'git' ]
+
+highlight SignifySignAdd    cterm=bold ctermfg=119
+highlight SignifySignDelete cterm=bold ctermfg=167
+highlight SignifySignChange cterm=bold ctermfg=227
 
 match ErrorMsg '\s\+$'
 
