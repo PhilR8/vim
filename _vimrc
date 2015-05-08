@@ -29,6 +29,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-signify'
+Plugin 'ap/vim-css-color'
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
