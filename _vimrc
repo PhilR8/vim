@@ -23,6 +23,7 @@ Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-sensible'
 Plugin 'groenewege/vim-less'
+Plugin 'othree/yajs.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mbbill/undotree'
 Plugin 'Raimondi/delimitMate'
@@ -30,9 +31,22 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-signify'
 Plugin 'ap/vim-css-color'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'SirVer/ultisnips' " snips engine
+Plugin 'honza/vim-snippets' " common snippets
+
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
+
+" edit to deal with grunt watch double-firing
+set backupcopy=yes
+
+" Ultisnips trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " tab labels
 set showtabline=2 " always show tabs in gvim, but not vim
@@ -82,11 +96,15 @@ endif
 
 " remove whitespace
 map <F10> :%s/\s\+$//
+
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " delimitMate binding
 imap <C-c> <CR><Esc>O
+
+" vim-json - disable double-quote concealing
+let g:vim_json_syntax_conceal = 0
 
 set lines=50 columns=100
 set number
