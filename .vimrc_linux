@@ -13,6 +13,8 @@ if has('gui_running')
 	set showmatch
 	set showmode
 
+	inoremap jk <ESC>
+
 	set rtp+=~/.vim/bundle/Vundle.vim
 
 	call vundle#begin()
