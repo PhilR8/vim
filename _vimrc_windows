@@ -6,6 +6,8 @@ behave mswin
 " easily load vimrc to edit (\v)
 map <leader>v :tabedit $MYVIMRC<CR>
 
+inoremap jk <ESC>
+
 " Vundle settings
 set nocompatible
 filetype off
