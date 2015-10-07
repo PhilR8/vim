@@ -38,6 +38,8 @@ if has('gui_running')
 	Plugin 'editorconfig/editorconfig-vim'
 	Plugin 'SirVer/ultisnips' " snips engine
 	Plugin 'honza/vim-snippets' " common snippets
+	Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
+
 	" All plugins must be added before the following line
 	call vundle#end()
 	filetype plugin indent on
