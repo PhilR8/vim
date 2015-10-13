@@ -38,6 +38,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'SirVer/ultisnips' " snips engine
 Plugin 'honza/vim-snippets' " common snippets
 Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
+Plugin 'briancollins/vim-jst' " template syntax highlighting
 
 " All plugins must be added before the following line
 call vundle#end()
