@@ -6,6 +6,9 @@ behave mswin
 " easily load vimrc to edit (\v)
 map <leader>v :tabedit $MYVIMRC<CR>
 
+" enable spell check for markdown and txt files
+autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
+
 inoremap jk <ESC>
 
 " Vundle settings

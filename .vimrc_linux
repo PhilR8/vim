@@ -5,6 +5,9 @@ if has('gui_running')
 	" remove top toolbar
 	set guioptions -=T
 
+	" enable spell check for markdown and txt files
+    autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
+
 	" vundle settings
 	filetype off
 
@@ -53,7 +56,7 @@ if has('gui_running')
 	nnoremap <F5> :UndotreeToggle<CR>
 
 	if has("persistent_undo")
-	set undodir=D:\undo
+	set undodir=~/undo
 	set undofile
 	endif
 
