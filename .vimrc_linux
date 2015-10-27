@@ -23,6 +23,7 @@ if has('gui_running')
 	call vundle#begin()
 
 	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'altercation/vim-colors-solarized'
 	Plugin 'Shutnik/jshint2.vim'
 	Plugin 'scrooloose/nerdcommenter'
 	Plugin 'bling/vim-airline'
@@ -92,9 +93,10 @@ if has('gui_running')
 	vnoremap <silent><C-l> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 
 	" Color scheme
-	colorscheme molokai
+	set background=dark
+	colorscheme solarized
 
-	syntax on
+	syntax enable
 
 	" airline customizations
 	let g:airline#extensions#tabline#left_sep = ' '
