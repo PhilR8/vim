@@ -9,7 +9,18 @@ map <leader>v :tabedit $MYVIMRC<CR>
 " enable spell check for markdown and txt files
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
 
+" remap Escape to jk
 inoremap jk <ESC>
+
+" set backupfile location
+set backupdir=~/vimfiles/backup//
+
+" disable swap files
+set noswapfile
+
+" create backup copies so undo persists between sessions
+set backupcopy=yes
+
 
 " Vundle settings
 set nocompatible
@@ -48,9 +59,6 @@ Plugin 'briancollins/vim-jst' " template syntax highlighting
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
-
-" edit to deal with grunt watch double-firing
-set backupcopy=yes
 
 " Ultisnips trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
