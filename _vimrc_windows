@@ -57,6 +57,7 @@ Plugin 'tpope/vim-vinegar' " enhanced netrw
 Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'nathanaelkane/vim-intent-guides' " add indent guides
+Plugin 'mhinz/vim-startify' " fancy start screen for vim
 
 " All plugins must be added before the following line
 call vundle#end()
