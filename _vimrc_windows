@@ -30,6 +30,7 @@ filetype off
 set rtp+=C:/Vim/vimfiles/bundle/Vundle.vim/
 let path='C:/Vim/vimfiles/bundle'
 call vundle#begin(path)
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 " Keep plugin commands between vundle#begin/end.
@@ -172,10 +173,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 
 " tab settings
+" show existing tab with 4 spaces width
 set tabstop=4
+" when indenting with '>', use 4 spaces width
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " caseless searching
 set ignorecase
