@@ -60,6 +60,7 @@ Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'nathanaelkane/vim-intent-guides' " add indent guides
 Plugin 'mhinz/vim-startify' " fancy start screen for vim
+Plugin 'pelodelfuego/vim-swoop' " from Bryan, like helm-swoop
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -114,6 +115,14 @@ endif
 
 " remove whitespace
 map <F10> :%s/\s\+$//
+
+" Swoop current buffer
+nmap <Leader>l :call Swoop()<CR>
+vmap <Leader>l :call SwoopSelection()<CR>
+
+" Swoop multiple buffers
+nmap <Leader>ml :call SwoopMulti()<CR>
+vmap <Leader>ml :call SwoopMultiSelection()<CR>
 
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
