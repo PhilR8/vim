@@ -12,15 +12,14 @@ autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
 " remap Escape to jk
 inoremap jk <ESC>
 
-" set backupfile location
-set backupdir=~/vimfiles/backup//
-
 " disable swap files
 set noswapfile
 
+" set backupfile location
+set backupdir=~/vimfiles/backup//
+
 " create backup copies so undo persists between sessions
 set backupcopy=yes
-
 
 " Vundle settings
 set nocompatible
@@ -58,8 +57,8 @@ Plugin 'briancollins/vim-jst' " template syntax highlighting
 Plugin 'tpope/vim-vinegar' " enhanced netrw
 Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-Plugin 'nathanaelkane/vim-intent-guides' " add indent guides
 Plugin 'mhinz/vim-startify' " fancy start screen for vim
+Plugin 'alvan/vim-closetag' " close html tags
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -115,16 +114,8 @@ endif
 " remove whitespace
 map <F10> :%s/\s\+$//
 
-" Swoop current buffer
-nmap <Leader>l :call Swoop()<CR>
-vmap <Leader>l :call SwoopSelection()<CR>
-
-" Swoop multiple buffers
-nmap <Leader>ml :call SwoopMulti()<CR>
-vmap <Leader>ml :call SwoopMultiSelection()<CR>
-
-" open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" closetag filetypes
+let g:closetag_filenames = "*.html,*.html,*.ejs,*.cshtml,*.xml"
 
 " delimitMate binding
 imap <C-c> <CR><Esc>O
