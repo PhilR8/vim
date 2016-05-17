@@ -37,7 +37,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-sensible'
 Plugin 'groenewege/vim-less'
@@ -182,6 +183,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 
 " tab settings
 " show existing tab with 4 spaces width
@@ -200,9 +202,12 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " vim-signify
 let g:signify_vcs_list = [ 'git' ]
 
-highlight SignifySignAdd    cterm=bold ctermfg=119
-highlight SignifySignDelete cterm=bold ctermfg=167
-highlight SignifySignChange cterm=bold ctermfg=227
+highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+
+" clear gitgutter background color
+highlight clear SignColumn
 
 match ErrorMsg '\s\+$'
 
