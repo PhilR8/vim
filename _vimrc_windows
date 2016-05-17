@@ -43,7 +43,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-sensible'
 Plugin 'groenewege/vim-less'
 Plugin 'othree/yajs.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher' " faster CtrlP results
 Plugin 'mbbill/undotree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
@@ -62,6 +64,7 @@ Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'mhinz/vim-startify' " fancy start screen for vim
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'ternjs/tern_for_vim' " tern for VIM
+Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -77,39 +80,6 @@ inoremap <expr> <c-k> ("\<C-p>")
 
 " tab labels
 set showtabline=2 " always show tabs in gvim, but not vim
-
-" set up tab labels with tab number, buffer name, number of windows
-function! GuiTabLabel()
-  let label = ''
-  let bufnrlist = tabpagebuflist(v:lnum)
-  " Add '+' if one of the buffers in the tab page is modified
-  for bufnr in bufnrlist
-    if getbufvar(bufnr, "&modified")
-      let label = '+'
-      break
-    endif
-  endfor
-  " Append the tab number
-  let label .= v:lnum.': '
-  " Append the buffer name
-  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
-  if name == ''
-    " give a name to no-name documents
-    if &buftype=='quickfix'
-      let name = '[Quickfix List]'
-    else
-      let name = '[No Name]'
-    endif
-  else
-    " get only the file name
-    let name = fnamemodify(name,":t")
-  endif
-  let label .= name
-  " Append the number of windows in the tab page
-  let wincount = tabpagewinnr(v:lnum, '$')
-  return label . '  [' . wincount . ']'
-endfunction
-set guitablabel=%{GuiTabLabel()}
 
 " set current workspace to :Explore
 map <F2> :cd %:p:h
@@ -177,6 +147,9 @@ colorscheme solarized
 
 syntax on
 
+" js library syntax
+let g:used_javascript_libs = "underscore,backbone,jquery"
+
 " airline customizations
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -184,6 +157,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
+
+" jsDoc.vim configuration
+let g:jsdoc_allow_input_prompt = 1 " allow prompt for interactive input
+let g:jsdoc_input_description = 1 " prompt for functio description
+let g:jsdoc_underscore_private = 1 " detect underscore starting functions as private
+
+nmap <silent> <C-l> <Plug>(jsdoc)
 
 " tab settings
 " show existing tab with 4 spaces width
