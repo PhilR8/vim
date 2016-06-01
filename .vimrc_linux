@@ -22,31 +22,37 @@ if has('gui_running')
 
 	call vundle#begin()
 
-	Plugin 'VundleVim/Vundle.vim'
-	Plugin 'altercation/vim-colors-solarized'
-	Plugin 'Shutnik/jshint2.vim'
-	Plugin 'scrooloose/nerdcommenter'
-	Plugin 'bling/vim-airline'
-	Plugin 'nathanaelkane/vim-indent-guides'
-	Plugin 'tpope/vim-sensible'
-	Plugin 'groenewege/vim-less'
-	Plugin 'othree/yajs.vim'
-	Plugin 'kien/ctrlp.vim'
-	Plugin 'mbbill/undotree'
-	Plugin 'Raimondi/delimitMate'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'mhinz/vim-signify'
-	Plugin 'ap/vim-css-color'
-	Plugin 'KabbAmine/zeavim.vim'
-	Plugin 'editorconfig/editorconfig-vim'
-	Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
-	Plugin 'tpope/vim-markdown'
-	Plugin 'briancollins/vim-jst' " template syntax highlighting
-	Plugin 'tpope/vim-vinegar' " enhanced netrw
-	Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
-	Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-	Plugin 'nathanaelkane/vim-intent-guides' " add indent guides
-    Plugin 'jreybert/vimagit' " git inside vim?
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-sensible'
+Plugin 'groenewege/vim-less'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher' " faster CtrlP results
+Plugin 'mbbill/undotree'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'elzr/vim-json'
+Plugin 'mhinz/vim-signify'
+Plugin 'ap/vim-css-color'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround' " edit surrounding tags in pairs - cs<from><to>; ds<tag> to delete
+Plugin 'briancollins/vim-jst' " template syntax highlighting
+Plugin 'tpope/vim-vinegar' " enhanced netrw
+Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
+Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
+Plugin 'mhinz/vim-startify' " fancy start screen for vim
+Plugin 'alvan/vim-closetag' " close html tags
+Plugin 'ternjs/tern_for_vim' " tern for VIM
+Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 
 	" All plugins must be added before the following line
 	call vundle#end()
