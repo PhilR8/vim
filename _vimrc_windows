@@ -59,7 +59,6 @@ Plugin 'briancollins/vim-jst' " template syntax highlighting
 Plugin 'tpope/vim-vinegar' " enhanced netrw
 Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-Plugin 'mhinz/vim-startify' " fancy start screen for vim
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 

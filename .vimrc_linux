@@ -22,6 +22,7 @@ if has('gui_running')
 
 	call vundle#begin()
 
+" Keep plugin commands between vundle#begin/end.
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -49,9 +50,7 @@ Plugin 'briancollins/vim-jst' " template syntax highlighting
 Plugin 'tpope/vim-vinegar' " enhanced netrw
 Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-Plugin 'mhinz/vim-startify' " fancy start screen for vim
 Plugin 'alvan/vim-closetag' " close html tags
-Plugin 'ternjs/tern_for_vim' " tern for VIM
 Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 
 	" All plugins must be added before the following line
