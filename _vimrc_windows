@@ -1,7 +1,5 @@
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 " easily load vimrc to edit (\v)
 map <leader>v :tabedit $MYVIMRC<CR>
@@ -63,20 +61,11 @@ Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'mhinz/vim-startify' " fancy start screen for vim
 Plugin 'alvan/vim-closetag' " close html tags
-Plugin 'ternjs/tern_for_vim' " tern for VIM
 Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 
 " All plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
-
-" tern key mappings
-" http://usevim.com/2013/05/24/tern/
-let g:tern_map_keys=1
-
-" autocomplete popup menu navigation using j and k
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
 
 " tab labels
 set showtabline=2 " always show tabs in gvim, but not vim
@@ -160,8 +149,10 @@ let g:airline_theme='solarized'
 
 " jsDoc.vim configuration
 let g:jsdoc_allow_input_prompt = 1 " allow prompt for interactive input
-let g:jsdoc_input_description = 1 " prompt for functio description
+let g:jsdoc_input_description = 1 " prompt for function description
+let g:jsdoc_access_descriptions = 2
 let g:jsdoc_underscore_private = 1 " detect underscore starting functions as private
+let g:jsdoc_additional_descriptions = 1 " add @name and @function
 
 nmap <silent> <C-l> <Plug>(jsdoc)
 
