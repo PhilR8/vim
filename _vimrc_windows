@@ -14,7 +14,7 @@ inoremap jk <ESC>
 set noswapfile
 
 " set backupfile location
-set backupdir=~/vimfiles/backup//
+set backupdir=D:/backup//
 
 " create backup copies so undo persists between sessions
 set backupcopy=yes
@@ -61,6 +61,7 @@ Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
+Plugin 'adamclerk/vim-razor' " cshtml razor template syntax highlighting
 
 " All plugins must be added before the following line
 call vundle#end()
