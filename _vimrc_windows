@@ -2,9 +2,6 @@ if has ("gui_running")
     set nocompatible
     source $VIMRUNTIME/vimrc_example.vim
 
-    " for multiple cursor plugin to work in gvim
-    set selection=inclusive
-
     " easily load vimrc to edit (\v)
     map <leader>v :tabedit $MYVIMRC<CR>
 
@@ -25,6 +22,9 @@ if has ("gui_running")
 
     " open file explorer to current directory
     map <C-e> :!start !explorer %:p:h:gs?\/?\\\\\\?<CR>
+
+    " highlight trailing whitespace
+    match ErrorMsg '\s\+$'
 
     " Vundle settings
     set nocompatible
@@ -69,7 +69,6 @@ if has ("gui_running")
     Plugin 'alvan/vim-closetag' " close html tags
     Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
     Plugin 'adamclerk/vim-razor' " cshtml razor template syntax highlighting
-    Plugin 'vim-multiple-cursors' " sublime-style multiple cursors
 
     " All plugins must be added before the following line
     call vundle#end()
@@ -175,6 +174,4 @@ if has ("gui_running")
 
     " clear gitgutter background color
     highlight clear SignColumn
-
-    match ErrorMsg '\s\+$'
 endif
