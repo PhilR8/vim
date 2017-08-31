@@ -49,7 +49,7 @@ if has ("gui_running")
     Plugin 'groenewege/vim-less'
     Plugin 'othree/yajs.vim'
     Plugin 'othree/javascript-libraries-syntax.vim'
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'FelikZ/ctrlp-py-matcher' " faster CtrlP results
     Plugin 'mbbill/undotree'
     Plugin 'Raimondi/delimitMate'
@@ -69,6 +69,8 @@ if has ("gui_running")
     Plugin 'alvan/vim-closetag' " close html tags
     Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
     Plugin 'adamclerk/vim-razor' " cshtml razor template syntax highlighting
+    Plugin 'mxw/vim-jsx' " React JSX syntax highlighting/indenting
+    Plugin 'tpope/vim-eunuch' " Vim sugar for UNIX shell commands
 
     " All plugins must be added before the following line
     call vundle#end()
