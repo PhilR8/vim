@@ -21,7 +21,6 @@ set noswapfile
 " create backup copies so undo persists between sessions
 set backupcopy=yes
 
-
 " Vundle settings
 set nocompatible
 filetype off
