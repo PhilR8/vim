@@ -1,7 +1,11 @@
+" Reload this file when off of TU network:
+" https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
+" :so %
+" so is short for 'source' and % is current file.  Loads file contents as
+" vimscript.
+
+
 set nocompatible
-"source $VIMRUNTIME/vimrc_example.vim
-"source $VIMRUNTIME/mswin.vim
-"behave mswin
 
 " easily load vimrc to edit (\v)
 map <leader>v :tabedit $MYVIMRC<CR>
@@ -55,7 +59,6 @@ Plugin 'briancollins/vim-jst' " template syntax highlighting
 Plugin 'tpope/vim-vinegar' " enhanced netrw
 Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-Plugin 'nathanaelkane/vim-intent-guides' " add indent guides
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
