@@ -1,6 +1,7 @@
 " Reload this file when off of TU network:
 " https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
 " :so %
+" :set background=dark
 " so is short for 'source' and % is current file.  Loads file contents as
 " vimscript.
 
@@ -57,7 +58,6 @@ Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
 Plugin 'tpope/vim-markdown'
 Plugin 'briancollins/vim-jst' " template syntax highlighting
 Plugin 'tpope/vim-vinegar' " enhanced netrw
-Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
 Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
