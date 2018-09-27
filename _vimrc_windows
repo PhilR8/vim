@@ -112,77 +112,72 @@ if has("persistent_undo")
     set undofile
 endif
 
-" remove whitespace
-map <F10> :%s/\s\+$//
+    " remove whitespace
+    map <F10> :%s/\s\+$//
 
-" open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+    " closetag filetypes
+    let g:closetag_filenames = "*.html,*.html,*.ejs,*.cshtml,*.xml"
 
-" delimitMate binding
-imap <C-c> <CR><Esc>O
+    " delimitMate binding
+    imap <C-c> <CR><Esc>O
 
-" vim-json - disable double-quote concealing
-let g:vim_json_syntax_conceal = 0
+    " vim-json - disable double-quote concealing
+    let g:vim_json_syntax_conceal = 0
 
-set lines=50 columns=100
-set number
+    set lines=50 columns=100
+    set number
 
 " Fonts
 "set guifont=Lucida_Sans_Typewriter:h10:cANSI
 set guifont=Consolas:h12
 
-set encoding=utf-8
-set fileencodings=utf-8
+    set encoding=utf-8
+    set fileencodings=utf-8
 
-set linespace=2
+    set linespace=2
 
-" Use one of the following to define the camel characters.
-" Stop on capital letters.
-let g:camelchar = "A-Z"
-" Also stop on numbers.
-let g:camelchar = "A-Z0-9"
-" Include '.' for class member, ',' for separator, ';' end-statement,
-" and <[< bracket starts and "'` quotes.
-let g:camelchar = "A-Z0-9.,;:{([`'\""
-nnoremap <silent><C-h> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-nnoremap <silent><C-l> :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-inoremap <silent><C-h> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
-inoremap <silent><C-l> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
-vnoremap <silent><C-h> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
-vnoremap <silent><C-l> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
+    " Color scheme
+    colorscheme solarized
 
 " Color scheme
 if has("gui_running")
 	colorscheme solarized
 endif
 
-syntax on
+    " js library syntax
+    let g:used_javascript_libs = "underscore,backbone,jquery"
 
-" airline customizations
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+	" airline customizations
+	let g:airline#extensions#tabline#left_sep = ' '
+	let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" tab settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+    " jsDoc.vim configuration
+    let g:jsdoc_allow_input_prompt = 1 " allow prompt for interactive input
+    let g:jsdoc_input_description = 1 " prompt for function description
+    let g:jsdoc_access_descriptions = 2
+    let g:jsdoc_underscore_private = 1 " detect underscore starting functions as private
+    let g:jsdoc_additional_descriptions = 1 " add @name and @function
 
-" caseless searching
-set ignorecase
+    nmap <silent> <C-l> <Plug>(jsdoc)
 
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+    " tab settings
+    " show existing tab with 4 spaces width
+    set tabstop=4
+    " when indenting with '>', use 4 spaces width
+    set shiftwidth=4
+    set softtabstop=4
+    " On pressing tab, insert 4 spaces
+    set expandtab
 
-" vim-signify
-let g:signify_vcs_list = [ 'git' ]
+    " caseless searching
+    set ignorecase
 
-highlight SignifySignAdd    cterm=bold ctermfg=119
-highlight SignifySignDelete cterm=bold ctermfg=167
-highlight SignifySignChange cterm=bold ctermfg=227
+    set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-match ErrorMsg '\s\+$'
+    " vim-signify
+    let g:signify_vcs_list = [ 'git' ]
 
 " alias repos folder
 let $repos = "C:\\users\\preese\\repos"
