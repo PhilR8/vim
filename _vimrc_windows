@@ -1,94 +1,116 @@
-if has ("gui_running")
-    set nocompatible
-    source $VIMRUNTIME/vimrc_example.vim
+" Reload this file when off of TU network:
+" https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
+" :so %
+" :set background=dark
+" so is short for 'source' and % is current file.  Loads file contents as
+" vimscript.
 
-    " easily load vimrc to edit (\v)
-    map <leader>v :tabedit $MYVIMRC<CR>
 
-    " enable spell check for markdown and txt files
-    autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
+set nocompatible
 
-    " remap Escape to jk
-    inoremap jk <ESC>
+" easily load vimrc to edit (\v)
+map <leader>v :tabedit $MYVIMRC<CR>
 
-    " disable swap files
-    set noswapfile
+" enable spell check for markdown and txt files
+autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
 
-    " set backupfile location
-    set backupdir=D:/backup//
+" remap Escape to jk
+inoremap jk <ESC>
 
-    " create backup copies so undo persists between sessions
-    set backupcopy=yes
+" set backupfile location
+set backupdir=C:/users/preese/.vim/backup//
 
-    " open file explorer to current directory
-    map <C-e> :!start !explorer %:p:h:gs?\/?\\\\\\?<CR>
+" disable swap files
+set noswapfile
 
-    " highlight trailing whitespace
-    match ErrorMsg '\s\+$'
+" create backup copies so undo persists between sessions
+set backupcopy=yes
 
-    " Vundle settings
-    set nocompatible
-    filetype off
+" Vundle settings
+set nocompatible
+filetype off
 
-    " set the runtime path to include Vundle and initialize
-    set rtp+=C:/Vim/vimfiles/bundle/Vundle.vim/
-    let path='C:/Vim/vimfiles/bundle'
-    call vundle#begin(path)
+" set the runtime path to include Vundle and initialize
+set rtp+=C:/users/preese/.vim/bundle/Vundle.vim/
+let path='C:/users/preese/.vim/bundle'
+call vundle#begin(path)
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" Keep plugin commands between vundle#begin/end.
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'bling/vim-airline'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-sensible'
+Plugin 'groenewege/vim-less'
+Plugin 'othree/yajs.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mbbill/undotree'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'elzr/vim-json'
+Plugin 'mhinz/vim-signify'
+Plugin 'ap/vim-css-color'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
+Plugin 'tpope/vim-markdown'
+Plugin 'briancollins/vim-jst' " template syntax highlighting
+Plugin 'tpope/vim-vinegar' " enhanced netrw
+Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
-    " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
+" All plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 
-    " Keep plugin commands between vundle#begin/end.
-    Plugin 'altercation/vim-colors-solarized'
-    Plugin 'Shutnik/jshint2.vim'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'nathanaelkane/vim-indent-guides'
-    Plugin 'tpope/vim-sensible'
-    Plugin 'groenewege/vim-less'
-    Plugin 'othree/yajs.vim'
-    Plugin 'othree/javascript-libraries-syntax.vim'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'FelikZ/ctrlp-py-matcher' " faster CtrlP results
-    Plugin 'mbbill/undotree'
-    Plugin 'Raimondi/delimitMate'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'elzr/vim-json'
-    Plugin 'mhinz/vim-signify'
-    Plugin 'ap/vim-css-color'
-    Plugin 'KabbAmine/zeavim.vim'
-    Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'tpope/vim-jdaddy' " JSON manipulation/pretty printing
-    Plugin 'tpope/vim-markdown'
-    Plugin 'tpope/vim-surround' " edit surrounding tags in pairs - cs<from><to>; ds<tag> to delete
-    Plugin 'briancollins/vim-jst' " template syntax highlighting
-    Plugin 'tpope/vim-vinegar' " enhanced netrw
-    Plugin 'edsono/vim-matchit' " % to jump between opening/closing tags
-    Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
-    Plugin 'alvan/vim-closetag' " close html tags
-    Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
-    Plugin 'adamclerk/vim-razor' " cshtml razor template syntax highlighting
-    Plugin 'mxw/vim-jsx' " React JSX syntax highlighting/indenting
-    Plugin 'tpope/vim-eunuch' " Vim sugar for UNIX shell commands
-
-    " All plugins must be added before the following line
-    call vundle#end()
-    filetype plugin indent on
-
-    " tab labels
-    set showtabline=2 " always show tabs in gvim, but not vim
-
-    " set current workspace to :Explore
-    map <F2> :cd %:p:h
-
-    " Toggle undotree
-    nnoremap <F5> :UndotreeToggle<CR>
-
-    if has("persistent_undo")
-        set undodir=D:\undo
-        set undofile
+" tab labels
+set showtabline=2 " always show tabs in gvim, but not vim
+" set up tab labels with tab number, buffer name, number of windows
+function! GuiTabLabel()
+  let label = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+  " Add '+' if one of the buffers in the tab page is modified
+  for bufnr in bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let label = '+'
+      break
     endif
+  endfor
+  " Append the tab number
+  let label .= v:lnum.': '
+  " Append the buffer name
+  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+  if name == ''
+    " give a name to no-name documents
+    if &buftype=='quickfix'
+      let name = '[Quickfix List]'
+    else
+      let name = '[No Name]'
+    endif
+  else
+    " get only the file name
+    let name = fnamemodify(name,":t")
+  endif
+  let label .= name
+  " Append the number of windows in the tab page
+  let wincount = tabpagewinnr(v:lnum, '$')
+  return label . '  [' . wincount . ']'
+endfunction
+set guitablabel=%{GuiTabLabel()}
+
+" set current workspace to :Explore
+map <F2> :cd %:p:h
+
+" Toggle undotree
+nnoremap <F5> :UndotreeToggle<CR>
+
+if has("persistent_undo")
+    set undodir=C:\users\preese\.vim\undo
+    set undofile
+endif
 
     " remove whitespace
     map <F10> :%s/\s\+$//
@@ -105,8 +127,9 @@ if has ("gui_running")
     set lines=50 columns=100
     set number
 
-    " Fonts
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11:cDEFAULT
+" Fonts
+"set guifont=Lucida_Sans_Typewriter:h10:cANSI
+set guifont=Consolas:h12
 
     set encoding=utf-8
     set fileencodings=utf-8
@@ -116,18 +139,19 @@ if has ("gui_running")
     " Color scheme
     colorscheme solarized
 
-    syntax on
+" Color scheme
+if has("gui_running")
+	colorscheme solarized
+endif
 
     " js library syntax
     let g:used_javascript_libs = "underscore,backbone,jquery"
 
-    " airline customizations
-    let g:airline#extensions#tabline#left_sep = ' '
-    let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#buffer_nr_show = 1
-    let g:airline_powerline_fonts = 1
-    let g:airline_theme='solarized'
+	" airline customizations
+	let g:airline#extensions#tabline#left_sep = ' '
+	let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#buffer_nr_show = 1
 
     " jsDoc.vim configuration
     let g:jsdoc_allow_input_prompt = 1 " allow prompt for interactive input
@@ -155,10 +179,5 @@ if has ("gui_running")
     " vim-signify
     let g:signify_vcs_list = [ 'git' ]
 
-    highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-    highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-    highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-
-    " clear gitgutter background color
-    highlight clear SignColumn
-endif
+" alias repos folder
+let $repos = "C:\\users\\preese\\repos"
