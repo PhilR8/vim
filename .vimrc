@@ -1,4 +1,5 @@
 set nocompatible
+set noswapfile
 
 " enable spell check for markdown and txt files
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
@@ -48,6 +49,8 @@ Plugin 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'heavenshell/vim-jsdoc' " plugin to generate JSDoc block comments
 Plugin 'vim-multiple-cursors' " sublime-style multiple cursors
+Plugin 'mxw/vim-jsx' " React JSX syntax highlighting/indenting
+Plugin 'tpope/vim-eunuch' " Vim sugar for UNIX shell commands
 
 " All plugins must be added before the following line
 call vundle#end()
@@ -123,6 +126,9 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " vim-signify
 let g:signify_vcs_list = [ 'git' ]
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 match ErrorMsg '\s\+$'
 
