@@ -5,7 +5,6 @@
 " so is short for 'source' and % is current file.  Loads file contents as
 " vimscript.
 
-
 set nocompatible
 
 " easily load vimrc to edit (\v)
@@ -135,9 +134,6 @@ set guifont=Consolas:h12
     set fileencodings=utf-8
 
     set linespace=2
-
-    " Color scheme
-    colorscheme solarized
 
 " Color scheme
 if has("gui_running")
