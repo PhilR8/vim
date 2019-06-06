@@ -24,6 +24,9 @@ Plug 'neoclide/coc.nvim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'equalsraf/neovim-gui-shim'
+Plug 'alvan/vim-closetag' " closes tags like <React.Fragment>, <div>, etc
+Plug 'cohama/lexima.vim' " closes {, [, etc
 call plug#end()
 
 " -------------------------------------------------------------------------------------
@@ -32,7 +35,7 @@ call plug#end()
 
 colorscheme NeoSolarized
 
-set hidden
+" set hidden " hidden allows you to move away from buffer without saving
 set nobackup
 set nowritebackup
 set updatetime=300
@@ -42,7 +45,7 @@ set shortmess+=c
 set nofixendofline
 
 " easily load vimrc to edit (\v)
-map <leader>v :tabedit $MYVIMRC<CR>
+map <leader>v :edit $MYVIMRC<CR>
 
 " enable spell check for markdown and txt files
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
@@ -78,8 +81,66 @@ map <F10> :%s/\s\+$//
 " alias repos folder
 let $repos = "C:\\users\\preese\\repos"
 
-" alias repos folder
-let $repos = "C:\\users\\preese\\repos"
+set number
+
+" airline customizations
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+" set up tab labels with tab number, buffer name, number of windows
+function! GuiTabLabel()
+	let label = ''
+	let bufnrlist = tabpagebuflist(v:lnum)
+	" Add '+' if one of the buffers in the tab page is modified
+	for bufnr in bufnrlist
+		if getbufvar(bufnr, "&modified")
+			let label = '+'
+			break
+		endif
+	endfor
+	" Append the tab number
+	let label .= v:lnum.': '
+	" Append the buffer name
+	let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+	if name == ''
+		" give a name to no-name documents
+		if &buftype=='quickfix'
+			let name = '[Quickfix List]'
+		else
+			let name = '[No Name]'
+		endif
+	else
+		" get only the file name
+		let name = fnamemodify(name,":t")
+	endif
+	let label .= name
+	" Append the number of windows in the tab page
+	let wincount = tabpagewinnr(v:lnum, '$')
+	return label . '  [' . wincount . ']'
+endfunction
+set guitablabel=%{GuiTabLabel()}
+
+if has("gui_running")
+	set guioptions-=T " no toolbar
+	set guioptions-=m " no menus
+	set guioptions-=r " no scrollbar on the right
+	set guioptions-=R " no scrollbar on the right
+	set guioptions-=l " no scrollbar on the left
+	set guioptions-=b " no scrollbar on the bottom
+	set guioptions=aiA
+	set mouse=a
+	set guifont=Monaco:h12
+endif
+
+" Mouse in terminal!!! (good for resizing splits)
+if has('mouse')
+	set mouse=a
+	"set ttymouse=xterm2
+endif
 
 " ------  coc functions ---------------------------------
 
@@ -176,4 +237,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" ------ end coc functions ---------------------------------
+" ------ vim-closetag config -------------------------------
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.js,*.jsx"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.erb'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
