@@ -1,4 +1,5 @@
 set nocompatible
+filetype plugin indent on
 
 " -------------------------------------------------------------------------------------
 "  PLUGINS
@@ -21,7 +22,8 @@ Plug 'tpope/vim-vinegar' " enhanced netrw
 Plug 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim'
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
@@ -80,6 +82,8 @@ map <F10> :%s/\s\+$//
 
 " alias repos folder
 let $repos = "C:\\users\\preese\\repos"
+let $home = "C:\\users\\preese"
+let $dotvim = "C:\\users\\preese\\.vim"
 
 set number
 
@@ -142,7 +146,9 @@ if has('mouse')
 	"set ttymouse=xterm2
 endif
 
-" ------  coc functions ---------------------------------
+" -------------------------------------------------------------------------------------
+"  COC FUNCTIONS
+" -------------------------------------------------------------------------------------
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -243,3 +249,10 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.erb'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+
+" -------------------------------------------------------------------------------------
+"  SKELETONS
+" -------------------------------------------------------------------------------------
+
+nnoremap ,rmc :-1read C:/users/preese/.vim/skeleton/react-mui-class<CR>
+nnoremap ,rmf :-1read C:/users/preese/.vim/skeleton/react-mui-func<CR>
