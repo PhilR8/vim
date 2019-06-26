@@ -1,0 +1,44 @@
+import React from 'react'
+import PropTypes from 'prop-types';
+
+import { withStyles } from 'material-ui/styles'
+
+const styles = {
+
+}
+
+class ClassComponent extends React.Component {
+	constructor( props ) {
+		super( props )
+
+		this.state = {
+
+		}
+	}
+
+	componentDidMount() {
+
+	}
+
+	componentDidUpdate(prevProps) {
+
+	}
+
+	componentWillUnmount() {
+
+	}
+
+	render() {
+		const { classes } = this.props
+
+		return (
+			<div>Element to Return</div>
+		)
+	}
+}
+
+ClassComponent.propTypes = {
+	classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(ClassComponent)
