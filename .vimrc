@@ -19,7 +19,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Keep plugin commands between vundle#begin/end.
-Plugin 'morhetz/gruvbox'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
