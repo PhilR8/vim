@@ -256,3 +256,4 @@ let g:closetag_close_shortcut = '<leader>>'
 
 nnoremap ,rmc :-1read C:/users/preese/.vim/skeleton/react-mui-class<CR>
 nnoremap ,rmf :-1read C:/users/preese/.vim/skeleton/react-mui-func<CR>
+nnoremap ,rrc :-1read C:/users/preese/.vim/skeleton/react-redux-container<CR>

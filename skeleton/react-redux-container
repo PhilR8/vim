@@ -1,0 +1,21 @@
+import { connect } from 'react-redux';
+
+import Component from './Component';
+
+import { action } from '../../redux/actions';
+
+const mapStateToProps = ( state, ownProps ) => {
+    return { prop1, prop2 };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onClick: arg => {
+            dispatch( action( arg ) )
+        }
+    }
+}
+
+const ComponentContainer = connect( mapStateToProps, mapDispatchToProps )( Component );
+
+export default ComponentContainer;
