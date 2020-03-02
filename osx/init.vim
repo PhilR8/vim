@@ -22,13 +22,16 @@ Plug 'tpope/vim-vinegar' " enhanced netrw
 Plug 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+"Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'alvan/vim-closetag' " closes tags like <React.Fragment>, <div>, etc
 Plug 'cohama/lexima.vim' " closes {, [, etc
+Plug 'andymass/vim-matchup' " improves % matching
+Plug 'yuezk/vim-js' " JavaScript syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim' " typescript syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty' " .jsx and .tsx syntax highlighting
 call plug#end()
 
 " -------------------------------------------------------------------------------------
@@ -71,6 +74,9 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Toggle undotree
 nnoremap <F5> :UndotreeToggle<CR>
+
+" set current file director as working directory
+map <F2> :cd %:p:h
 
 if has("persistent_undo")
 	set undodir=~/.vim/undo
@@ -132,7 +138,6 @@ if has("gui_running")
 	set guioptions-=b " no scrollbar on the bottom
 	set guioptions=aiA
 	set mouse=a
-	set guifont=Monaco:h12
 endif
 
 " Mouse in terminal!!! (good for resizing splits)
@@ -144,6 +149,8 @@ endif
 " -------------------------------------------------------------------------------------
 "  COC FUNCTIONS
 " -------------------------------------------------------------------------------------
+
+let g:coc_node_path = 'Users/preese/.nvm/versions/node/v10.18.1/bin/node'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -239,11 +246,18 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ------ vim-closetag config -------------------------------
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.js,*.jsx"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.erb'
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.js,*.jsx,*.ts,*.tsx"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.erb,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+
+" ------ vim-matchup config --------------------------------
+let g:matchup_matchparen_enabled = 0
+
+" ------ vim-jsx-prett config ------------------------------
+let g:vim_jsx_pretty_highlight_close_tag = 1
+let g:vim_jsx_pretty_colorful_config = 1
 
 " -------------------------------------------------------------------------------------
 "  SKELETONS
