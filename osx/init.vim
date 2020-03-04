@@ -45,6 +45,7 @@ set nobackup
 set nowritebackup
 set updatetime=300
 set shortmess+=c
+set signcolumn=yes
 
 " do not add newlines at end of file - current devteam request
 set nofixendofline
@@ -150,7 +151,7 @@ endif
 "  COC FUNCTIONS
 " -------------------------------------------------------------------------------------
 
-let g:coc_node_path = 'Users/preese/.nvm/versions/node/v10.18.1/bin/node'
+let g:coc_node_path = '/Users/preese/.nvm/versions/node/v10.18.1/bin/node'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -245,6 +246,11 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" Give more space for displaying messages
+set cmdheight=2
+
+
+
 " ------ vim-closetag config -------------------------------
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.js,*.jsx,*.ts,*.tsx"
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.erb,*.tsx'
@@ -256,7 +262,7 @@ let g:closetag_close_shortcut = '<leader>>'
 let g:matchup_matchparen_enabled = 0
 
 " ------ vim-jsx-prett config ------------------------------
-let g:vim_jsx_pretty_highlight_close_tag = 1
+"let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:vim_jsx_pretty_colorful_config = 1
 
 " -------------------------------------------------------------------------------------
@@ -266,3 +272,8 @@ let g:vim_jsx_pretty_colorful_config = 1
 nnoremap ,rmc :-1read ~/repos/vim/skeleton/react-mui-class<CR>
 nnoremap ,rmf :-1read ~/repos/vim/skeleton/react-mui-func<CR>
 nnoremap ,rrc :-1read ~/repos/vim/skeleton/react-redux-container<CR>
+nnoremap ,rmtf :-1read ~/repos/vim/skeleton/react-mui-ts-func<CR>
+
+
+" ------ set default directory -----------------------------
+:cd ~/tsg/1st/client

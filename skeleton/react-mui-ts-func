@@ -1,0 +1,22 @@
+import React from 'react'
+
+import { Properties as CSSProperties } from "csstype"
+
+import { withStyles } from 'material-ui/styles'
+
+const styles: { [name: string]: CSSProperties } = {
+
+}
+
+type Props = {
+  classes: object
+}
+
+
+const FunctionComponent = ({ classes }: Props) => {
+	return (
+		<div>Element to return</div>
+	)
+}
+
+export default withStyles(styles)(FunctionComponent)
