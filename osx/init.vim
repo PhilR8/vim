@@ -21,17 +21,17 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-vinegar' " enhanced netrw
 Plug 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
-Plug 'alvan/vim-closetag' " closes tags like <React.Fragment>, <div>, etc
 Plug 'cohama/lexima.vim' " closes {, [, etc
 Plug 'andymass/vim-matchup' " improves % matching
 Plug 'yuezk/vim-js' " JavaScript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim' " typescript syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty' " .jsx and .tsx syntax highlighting
+Plug 'vim-test/vim-test' " vim test runner - :TestNearest to use
 call plug#end()
 
 " -------------------------------------------------------------------------------------
@@ -151,7 +151,8 @@ endif
 "  COC FUNCTIONS
 " -------------------------------------------------------------------------------------
 
-let g:coc_node_path = '/Users/preese/.nvm/versions/node/v10.18.1/bin/node'
+let g:coc_node_path = '/Users/preese/.nvm/versions/node/v14.15.0/bin/node'
+let g:coc_node_args = ['--max_old_space_size=8192']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -273,6 +274,7 @@ nnoremap ,rmc :-1read ~/repos/vim/skeleton/react-mui-class<CR>
 nnoremap ,rmf :-1read ~/repos/vim/skeleton/react-mui-func<CR>
 nnoremap ,rrc :-1read ~/repos/vim/skeleton/react-redux-container<CR>
 nnoremap ,rmtf :-1read ~/repos/vim/skeleton/react-mui-ts-func<CR>
+nnoremap ,jrt :-1read ~/repos/vim/skeleton/jest-react-test<CR>
 
 
 " ------ set default directory -----------------------------

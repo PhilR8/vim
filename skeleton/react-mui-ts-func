@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from "react"
 
-import { Properties as CSSProperties } from "csstype"
+import { makeStyles } from "@material-ui/core/styles"
 
-import { withStyles } from 'material-ui/styles'
+const useStyles = makeStyles({
 
-const styles: { [name: string]: CSSProperties } = {
+})
+
+interface OwnProps {
 
 }
 
-type Props = {
-  classes: object
-}
 
-
-const FunctionComponent = ({ classes }: Props) => {
+const FunctionComponent = ({  }: OwnProps) => {
+	const classes = useStyles()
 	return (
 		<div>Element to return</div>
 	)
 }
 
-export default withStyles(styles)(FunctionComponent)
+export default FunctionComponent
