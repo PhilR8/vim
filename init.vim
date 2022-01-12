@@ -35,6 +35,7 @@ call plug#end()
 "  GENERAL
 " -------------------------------------------------------------------------------------
 
+set termguicolors
 colorscheme NeoSolarized
 
 " set hidden " hidden allows you to move away from buffer without saving

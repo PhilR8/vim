@@ -8,7 +8,7 @@ filetype plugin indent on
 call plug#begin('~/AppData/Local/nvim/plugged')
 " below are some vim plugin for demonstration purpose
 Plug 'joshdick/onedark.vim'
-Plug 'iCyMind/NeoSolarized'
+Plug 'overcache/NeoSolarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'groenewege/vim-less'
 Plug 'kien/ctrlp.vim'
@@ -32,12 +32,15 @@ Plug 'yuezk/vim-js' " JavaScript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim' " typescript syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty' " .jsx and .tsx syntax highlighting
 Plug 'vim-test/vim-test' " vim test runner - :TestNearest to use
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'github/copilot.vim'
 call plug#end()
 
 " -------------------------------------------------------------------------------------
 "  GENERAL
 " -------------------------------------------------------------------------------------
 
+set termguicolors
 colorscheme NeoSolarized
 
 " set hidden " hidden allows you to move away from buffer without saving
@@ -67,6 +70,7 @@ set noswapfile
 " NOTE - it's the actual tab character - it is not four spaces.
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 " caseless searching
 set ignorecase
@@ -150,9 +154,6 @@ endif
 " -------------------------------------------------------------------------------------
 "  COC FUNCTIONS
 " -------------------------------------------------------------------------------------
-
-let g:coc_node_path = '/Users/preese/.nvm/versions/node/v14.15.0/bin/node'
-let g:coc_node_args = ['--max_old_space_size=8192']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -281,4 +282,13 @@ nnoremap ,jrt :-1read ~/repos/vim/skeleton/jest-react-test<CR>
 nnoremap ,vsf :-1read ~/repos/vim/skeleton/vue-single-file-component<CR>
 
 " ------ set default directory -----------------------------
-:cd ~/tsg/1st/client
+:cd ~/repos
+
+
+" -------------------------------------------------------------------------------------
+"  Github Copilot Settings
+" -------------------------------------------------------------------------------------
+
+" set accept current suggestion to CTRL-J
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
