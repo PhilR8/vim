@@ -270,12 +270,15 @@ let g:vim_jsx_pretty_colorful_config = 1
 "  SKELETONS
 " -------------------------------------------------------------------------------------
 
+" React / Material-UI
 nnoremap ,rmc :-1read ~/repos/vim/skeleton/react-mui-class<CR>
 nnoremap ,rmf :-1read ~/repos/vim/skeleton/react-mui-func<CR>
 nnoremap ,rrc :-1read ~/repos/vim/skeleton/react-redux-container<CR>
 nnoremap ,rmtf :-1read ~/repos/vim/skeleton/react-mui-ts-func<CR>
 nnoremap ,jrt :-1read ~/repos/vim/skeleton/jest-react-test<CR>
 
+" Vue
+nnoremap ,vsf :-1read ~/repos/vim/skeleton/vue-single-file-component<CR>
 
 " ------ set default directory -----------------------------
 :cd ~/tsg/1st/client
