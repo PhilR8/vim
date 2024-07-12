@@ -22,18 +22,18 @@ Plug 'tpope/vim-vinegar' " enhanced netrw
 Plug 'drmikehenry/vim-fontsize' " adjust font size <leader><leader>+/-
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'cohama/lexima.vim' " closes {, [, etc
 Plug 'andymass/vim-matchup' " improves % matching
-Plug 'yuezk/vim-js' " JavaScript syntax highlighting
+"Plug 'yuezk/vim-js' " JavaScript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim' " typescript syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty' " .jsx and .tsx syntax highlighting
 Plug 'vim-test/vim-test' " vim test runner - :TestNearest to use
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"plug 'github/copilot.vim'"
+Plug 'github/copilot.vim'
 call plug#end()
 
 " -------------------------------------------------------------------------------------
@@ -278,8 +278,11 @@ nnoremap ,rrc :-1read ~/repos/vim/skeleton/react-redux-container<CR>
 nnoremap ,rmtf :-1read ~/repos/vim/skeleton/react-mui-ts-func<CR>
 nnoremap ,jrt :-1read ~/repos/vim/skeleton/jest-react-test<CR>
 
-" Vue
+" Vue Options API
 nnoremap ,vsf :-1read ~/repos/vim/skeleton/vue-single-file-component<CR>
+
+" Vue Compositon API
+nnoremap ,vca :-1read ~/repos/vim/skeleton/vue-composition-api<CR>
 
 " ------ set default directory -----------------------------
 :cd ~/repos
