@@ -2,3 +2,4 @@ vim72
 vim74
 vimfiles
 *.log
+**/spell
