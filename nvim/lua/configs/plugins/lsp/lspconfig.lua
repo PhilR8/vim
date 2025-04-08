@@ -2,9 +2,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "williamboman/mason.nvim",
+        "saghen/blink.cmp",
+        "williamboman/mason-lspconfig.nvim",
     },
     config = function()
+        local home = os.getenv("HOME")
+
         local nvim_lsp = require("lspconfig")
         local mason_lspconfig = require("mason-lspconfig")
 
@@ -29,22 +32,21 @@ return {
             nmap("]d", vim.diagnostic.goto_prev, "Go to Previous Diagnostic")
         end
 
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
+
         mason_lspconfig.setup_handlers({
             function(server)
                 nvim_lsp[server].setup({})
             end,
-            ["ts_ls"] = function()
-                nvim_lsp["ts_ls"].setup({
-                    on_attach = on_attach,
-                })
-            end,
             ["eslint"] = function()
                 nvim_lsp["eslint"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["lua_ls"] = function()
                 nvim_lsp["lua_ls"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                     settings = {
                         Lua = {
@@ -57,32 +59,67 @@ return {
             end,
             ["gopls"] = function()
                 nvim_lsp["gopls"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["pyright"] = function()
                 nvim_lsp["pyright"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["html"] = function()
                 nvim_lsp["html"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["cssls"] = function()
                 nvim_lsp["cssls"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["stylelint_lsp"] = function()
                 nvim_lsp["stylelint_lsp"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
                 })
             end,
             ["volar"] = function()
                 nvim_lsp["volar"].setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
+                    init_options = {
+                        vue = {
+                            hybridMode = false,
+                        },
+                        typescript = {
+                            tsdk = home .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/",
+                        },
+                    },
+                })
+            end,
+            ["ts_ls"] = function()
+                nvim_lsp["ts_ls"].setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    init_options = {
+                        plugins = {
+                            {
+                                name = "@vue/typescript-plugin",
+                                -- Change this to the location the plugin is installed to
+                                location = home .. "/.nvm/versions/node/v20.18.3/lib/node_modules/@vue/typescript-plugin",
+                                languages = { "javascript", "typescript", "vue" },
+                            },
+                        },
+                    },
+                    filetypes = {
+                        "javascript",
+                        "typescript",
+                        "vue",
+                    },
                 })
             end,
         })

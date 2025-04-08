@@ -14,3 +14,6 @@ vim.opt.swapfile = false
 vim.opt.number = true
 vim.opt.fixendofline = false
 
+vim.opt.winborder = "rounded"
+
+vim.opt.splitright = true
